@@ -10,4 +10,9 @@ function getComputerChoice(){
     }
     return computerChoice
 }
+function getHumanChoice(){
+    let humanChoice = prompt("Rock , Paper , Scissors").toUpperCase()
+    return humanChoice
+}
 console.log(getComputerChoice())
+console.log(getHumanChoice())
