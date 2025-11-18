@@ -16,5 +16,28 @@ function getHumanChoice(){
 }
 let humanScore = 0;
 let computerScore = 0;
-console.log(getComputerChoice())
-console.log(getHumanChoice())
+function playRound(humanChoice, computerChoice){
+    if (humanChoice == computerChoice){
+        console.log("same selection! no score to both players")
+    }
+    if (humanChoice == "ROCK"){
+        if (computerChoice == "PAPER"){
+            console.log ( "you lose, paper beats rock")
+        }
+        else console.log("you win")
+    } else if (humanChoice == "PAPER"){
+        if (computerChoice == "ROCK"){
+            console.log ("you win")
+        }
+        else console.log("You lose, scissors beat paper")
+    } else{
+        if (computerChoice == "ROCK"){
+            console.log("You lose!. scissors beat rock")
+        }else console.log("You win")
+
+    }
+}
+const computerSelection =getComputerChoice()
+const humanSelection = getHumanChoice()
+
+playRound (humanSelection, computerSelection)
