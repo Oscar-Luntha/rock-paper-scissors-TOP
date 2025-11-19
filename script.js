@@ -40,7 +40,7 @@ function playRound(humanChoice, computerChoice){
         }
     } else{
         if (computerChoice == "ROCK"){
-            console.log("You lose!. scissors beat rock")
+            console.log("You lose!. rock beats scissors")
             return 0
         }else{
             console.log("You win")
