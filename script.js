@@ -1,3 +1,4 @@
+
 function getComputerChoice(){
     let computerChoice = Math.floor(Math.random() * 3) + 1 
     if(computerChoice === 1){
@@ -59,11 +60,14 @@ function playGame(){
         score = playRound(humanSelection, computerSelection)
         if (score == 1 ){
             humanScore += 1
+        
         } else if (score == 0 )computerScore +=1
         else {
             humanScore += 0
             computerScore += 0
         }
+        document.querySelector(".playerScore").textContent = humanScore
+        document.querySelector(".computerScore").textContent = computerScore
         i+=1;
     }
     alert(`Your score ${humanScore} : ${computerScore} Computer score`)
