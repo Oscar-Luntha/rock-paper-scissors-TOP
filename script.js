@@ -53,8 +53,8 @@ function playRound(humanChoice, computerChoice){
 function playGame(){
     let humanScore = 0;
     let computerScore = 0;
-    let i = 0;
-    while(i <= 4){
+    let winner = false
+    while(!winner){
         const computerSelection =getComputerChoice()
         const humanSelection = getHumanChoice()
         score = playRound(humanSelection, computerSelection)
@@ -68,7 +68,9 @@ function playGame(){
         }
         document.querySelector(".playerScore").textContent = humanScore
         document.querySelector(".computerScore").textContent = computerScore
-        i+=1;
+        if(humanScore == 5 || computerScore == 5){
+            winner = true
+        }
     }
     alert(`Your score ${humanScore} : ${computerScore} Computer score`)
 }
