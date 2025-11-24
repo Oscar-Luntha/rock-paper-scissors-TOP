@@ -2,6 +2,8 @@ let buttons = document.querySelectorAll("button")
 buttons.forEach(button => {
 button.addEventListener("click", () => {
     humanChoice = getHumanChoice(button.id)
+    computerSelection = getComputerChoice()
+    playRound(humanChoice,computerSelection)
     })
 })
 function getComputerChoice(){
@@ -17,8 +19,7 @@ function getComputerChoice(){
     return computerChoice
 }
 function getHumanChoice(choice){
-    console.log(choice)
-    return choice
+    return choice.toUpperCase()
 }
 
 function playRound(humanChoice, computerChoice){
@@ -54,13 +55,14 @@ function playRound(humanChoice, computerChoice){
         } 
     }
 }
-function playGame(){
+function playGame(humanSelection){
     let humanScore = 0;
     let computerScore = 0;
     let winner = false
     while(!winner){
         const computerSelection = getComputerChoice()
-        score = playRound(humanSelection, computerSelection)
+        console.log(computerSelection)
+        console.log(humanSelection)
         if (score == 1 ){
             humanScore += 1
         
@@ -77,6 +79,4 @@ function playGame(){
     }
     alert(`Your score ${humanScore} : ${computerScore} Computer score`)
 }
-playGame()
-
 
