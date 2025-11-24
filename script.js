@@ -1,4 +1,9 @@
-
+let buttons = document.querySelectorAll("button")
+buttons.forEach(button => {
+button.addEventListener("click", () => {
+    humanChoice = getHumanChoice(button.id)
+    })
+})
 function getComputerChoice(){
     let computerChoice = Math.floor(Math.random() * 3) + 1 
     if(computerChoice === 1){
@@ -11,9 +16,9 @@ function getComputerChoice(){
     }
     return computerChoice
 }
-function getHumanChoice(){
-    let humanChoice = prompt("Rock , Paper , Scissors").toUpperCase()
-    return humanChoice
+function getHumanChoice(choice){
+    console.log(choice)
+    return choice
 }
 
 function playRound(humanChoice, computerChoice){
@@ -47,7 +52,6 @@ function playRound(humanChoice, computerChoice){
             console.log("You win")
             return 1
         } 
-
     }
 }
 function playGame(){
@@ -55,8 +59,7 @@ function playGame(){
     let computerScore = 0;
     let winner = false
     while(!winner){
-        const computerSelection =getComputerChoice()
-        const humanSelection = getHumanChoice()
+        const computerSelection = getComputerChoice()
         score = playRound(humanSelection, computerSelection)
         if (score == 1 ){
             humanScore += 1
