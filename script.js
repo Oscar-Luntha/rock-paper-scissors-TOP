@@ -6,6 +6,7 @@ button.addEventListener("click", () => {
     humanChoice = getHumanChoice(button.id)
     computerSelection = getComputerChoice()
     score = playRound(humanChoice,computerSelection)
+    getScore(score)
     })
 })
 function getComputerChoice(){
@@ -63,21 +64,24 @@ function playGame(humanSelection){
         const computerSelection = getComputerChoice()
         console.log(computerSelection)
         console.log(humanSelection)
-        document.querySelector(".playerScore").textContent = humanScore
-        document.querySelector(".computerScore").textContent = computerScore
+        
         if(humanScore == 5 || computerScore == 5){
             winner = true
         }
     }
-    alert(`Your score ${humanScore} : ${computerScore} Computer score`)
 }
-function getScore(roundScore){
-        if (score == 1 ){
-            humanScore += 1
-        } else if (score == 0 )computerScore +=1
-        else {
-            humanScore += 0
-            computerScore += 0
-        }
+function getScore(score){
+    if (score == 1 ){
+        humanScore += 1
+    } else if (score == 0 )computerScore +=1
+    else {
+        humanScore += 0
+        computerScore += 0
+    }
+    console.log(`Your score ${humanScore} : ${computerScore} Computer score`)
+    updateGui(humanScore,computerScore)
 }
-
+function updateGui(humanScore, computerScore){
+    document.querySelector(".playerScore").textContent = humanScore
+    document.querySelector(".computerScore").textContent = computerScore
+}
