@@ -71,4 +71,16 @@ function getScore(score){
 function updateGui(humanScore, computerScore){
     document.querySelector(".playerScore").textContent = humanScore
     document.querySelector(".computerScore").textContent = computerScore
+    determineWinner(humanScore,computerScore)
+}
+function determineWinner(humanScore, computerScore){   
+    if(humanScore == 5){
+        document.querySelector("body").textContent = "You win"
+        setTimeout(()=> {window.location.reload(true);}, 3000)
+    }else if (computerScore == 5){
+        document.querySelector("body").textContent = "Computer wins"
+        setTimeout(()=> {window.location.reload(true);}, 3000)
+    }
+    else
+        document.querySelector(".winner").textContent = "Ready for next round"
 }
