@@ -27,47 +27,35 @@ function getHumanChoice(choice){
 
 function playRound(humanChoice, computerChoice){
     if (humanChoice == computerChoice){
-        console.log("same selection! no score to both players")
+        document.querySelector(".roundWinner").textContent = "Same Selection, no score to both players"
         return 2
     }
     if (humanChoice == "ROCK"){
         if (computerChoice == "PAPER"){
-            console.log ( "you lose, paper beats rock")
+            document.querySelector(".roundWinner").textContent = "Computer chose paper, You Lose the round"
             return 0
         }
         else {
-            console.log("you win")
+            document.querySelector(".roundWinner").textContent = "Computer chose scissors, You Win the round"
             return 1
         }
     } else if (humanChoice == "PAPER"){
         if (computerChoice == "ROCK"){
-            console.log ("you win")
+            document.querySelector(".roundWinner").textContent = "Computer chose rock, You Win the round"
             return 1
         }
         else {
-            console.log("You lose, scissors beat paper")
+            document.querySelector(".roundWinner").textContent = "Computer chose scissors, You Lose the round"
             return 0
         }
     } else{
         if (computerChoice == "ROCK"){
-            console.log("You lose!. rock beats scissors")
+            document.querySelector(".roundWinner").textContent = "Computer chose rock, You Lose the round"
             return 0
         }else{
-            console.log("You win")
+            document.querySelector(".roundWinner").textContent = "Computer chose paper, You Win the round"
             return 1
         } 
-    }
-}
-function playGame(humanSelection){
-    let winner = false
-    while(!winner){
-        const computerSelection = getComputerChoice()
-        console.log(computerSelection)
-        console.log(humanSelection)
-        
-        if(humanScore == 5 || computerScore == 5){
-            winner = true
-        }
     }
 }
 function getScore(score){
@@ -78,7 +66,6 @@ function getScore(score){
         humanScore += 0
         computerScore += 0
     }
-    console.log(`Your score ${humanScore} : ${computerScore} Computer score`)
     updateGui(humanScore,computerScore)
 }
 function updateGui(humanScore, computerScore){
